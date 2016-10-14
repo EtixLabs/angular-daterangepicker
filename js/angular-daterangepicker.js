@@ -11,7 +11,7 @@
     }
   });
 
-  picker.directive('dateRangePicker', ['$compile', '$timeout', '$parse', 'dateRangePickerConfig', function($compile, $timeout, $parse, dateRangePickerConfig) {
+  picker.directive('dateRangePicker', function($compile, $timeout, $parse, dateRangePickerConfig) {
     return {
       require: 'ngModel',
       restrict: 'A',
@@ -133,11 +133,13 @@
           el.daterangepicker(angular.extend(opts, {
             autoUpdateInput: false
           }), function(start, end) {
-            return $scope.$apply(function() {
-              return $scope.model = opts.singleDatePicker ? start : {
-                startDate: start,
-                endDate: end
-              };
+            return setTimeout(function() {
+              return $scope.$apply(function() {
+                return $scope.model = opts.singleDatePicker ? start : {
+                  startDate: start,
+                  endDate: end
+                };
+              });
             });
           });
           _picker = el.data('daterangepicker');
@@ -204,6 +206,6 @@
         });
       }
     };
-  }]);
+  });
 
 }).call(this);
