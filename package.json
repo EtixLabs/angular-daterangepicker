@@ -11,7 +11,7 @@
   "license": "MIT",
   "private": false,
   "dependencies": {
-    "bootstrap-daterangepicker": "git+ssh://git@github.com/EtixLabs/bootstrap-daterangepicker.git#add-options-inline"
+    "bootstrap-daterangepicker": "git+https://github.com/EtixLabs/bootstrap-daterangepicker.git#add-options-inline"
   },
   "main": "index.js",
   "devDependencies": {
